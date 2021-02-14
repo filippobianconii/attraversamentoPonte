@@ -1,0 +1,20 @@
+﻿<Window x:Class="attraversamentoPonte.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:attraversamentoPonte"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="820">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="158*"/>
+            <RowDefinition Height="111*"/>
+        </Grid.RowDefinitions>
+        <Image HorizontalAlignment="Left" Height="270" Margin="0,-1,-30,0" VerticalAlignment="Top" Width="842" Source="strada.jpg" Grid.RowSpan="2"/>
+        <Image x:Name="imgMacchina1" HorizontalAlignment="Left" Height="72" Margin="693,36,0,0" VerticalAlignment="Top" Width="100" Source="macchina1.jpg"/>
+        <Image x:Name="imgMacchina2" HorizontalAlignment="Left" Height="100" Margin="10,1,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Source="macchina2.png"/>
+        <Image x:Name="imgMacchina3" HorizontalAlignment="Left" Height="100" Margin="129,1,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Source="macchina3.png"/>
+        <Image x:Name="semaforo" HorizontalAlignment="Left" Height="63" VerticalAlignment="Top" Width="37" Margin="339,95,0,0" Source="semaforo.jpg"/>
+    </Grid>
+</Window>

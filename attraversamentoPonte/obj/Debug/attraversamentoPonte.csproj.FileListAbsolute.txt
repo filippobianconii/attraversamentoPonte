@@ -1,0 +1,15 @@
+C:\Users\filippo.bianconi\Desktop\attraversamentoPonte\attraversamentoPonte\obj\Debug\attraversamentoPonte.csprojAssemblyReference.cache
+C:\Users\filippo.bianconi\Desktop\attraversamentoPonte\attraversamentoPonte\obj\Debug\MainWindow.g.cs
+C:\Users\filippo.bianconi\Desktop\attraversamentoPonte\attraversamentoPonte\obj\Debug\App.g.cs
+C:\Users\filippo.bianconi\Desktop\attraversamentoPonte\attraversamentoPonte\obj\Debug\attraversamentoPonte_MarkupCompile.cache
+C:\Users\filippo.bianconi\Desktop\attraversamentoPonte\attraversamentoPonte\obj\Debug\attraversamentoPonte_MarkupCompile.lref
+C:\Users\filippo.bianconi\Desktop\attraversamentoPonte\attraversamentoPonte\bin\Debug\attraversamentoPonte.exe.config
+C:\Users\filippo.bianconi\Desktop\attraversamentoPonte\attraversamentoPonte\bin\Debug\attraversamentoPonte.exe
+C:\Users\filippo.bianconi\Desktop\attraversamentoPonte\attraversamentoPonte\bin\Debug\attraversamentoPonte.pdb
+C:\Users\filippo.bianconi\Desktop\attraversamentoPonte\attraversamentoPonte\obj\Debug\MainWindow.baml
+C:\Users\filippo.bianconi\Desktop\attraversamentoPonte\attraversamentoPonte\obj\Debug\attraversamentoPonte.g.resources
+C:\Users\filippo.bianconi\Desktop\attraversamentoPonte\attraversamentoPonte\obj\Debug\attraversamentoPonte.Properties.Resources.resources
+C:\Users\filippo.bianconi\Desktop\attraversamentoPonte\attraversamentoPonte\obj\Debug\attraversamentoPonte.csproj.GenerateResource.cache
+C:\Users\filippo.bianconi\Desktop\attraversamentoPonte\attraversamentoPonte\obj\Debug\attraversamentoPonte.csproj.CoreCompileInputs.cache
+C:\Users\filippo.bianconi\Desktop\attraversamentoPonte\attraversamentoPonte\obj\Debug\attraversamentoPonte.exe
+C:\Users\filippo.bianconi\Desktop\attraversamentoPonte\attraversamentoPonte\obj\Debug\attraversamentoPonte.pdb
