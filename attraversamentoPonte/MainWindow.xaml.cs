@@ -24,59 +24,98 @@ namespace attraversamentoPonte
         private static Semaphore _pool;
         readonly Uri uriMacchina1 = new Uri("macchina1.jpg", UriKind.Relative);
         readonly Uri uriMacchina2 = new Uri("macchina2.jpg", UriKind.Relative);
-        readonly Uri uriMacchina3 = new Uri("macchina3.jpg", UriKind.Relative);
+       
 
         public MainWindow()
         {
             int posMacchina1 = 0;
             int posMacchina2 = 100;
-            int posMacchina3 = 200;
 
-            Thread t1 = new Thread(new ThreadStart(muoviMacchina));
+            int x =  chiPassa(posMacchina1, posMacchina2);
+
+            Thread t1 = new Thread(new ThreadStart(muoviMacchina1( posMacchina1, posMacchina2, x )));
             ImageSource imm = new BitmapImage(uriMacchina1);
             imgMacchina1.Source = imm;
+            t1.Start();
 
-            Thread t2 = new Thread(new ThreadStart(muoviMacchina));
-            ImageSource imm2 = new BitmapImage(uriMacchina2);
-            imgMacchina1.Source = imm2;
-
-            Thread t3 = new Thread(new ThreadStart(muoviMacchina));
-            ImageSource imm3 = new BitmapImage(uriMacchina3);
-            imgMacchina1.Source = imm3;
-
-
-
-
-            Thread t4 = new Thread(new ThreadStart(muoviMacchina));
-
-            _pool = new Semaphore(0, 1);
-
-            t4.Start();
-            t5.Start();
-
-            _pool.Release(1);
         }
 
-        static void muoviMacchina()
+        public int chiPassa(int posMacchina1, int posMacchina2)
         {
-            for (int i = 0; i < 100; i++)
+
+            Random rn = new Random();
+            int macchinaDestra = rn.Next(0, 1);
+            int x;
+
+                    if (macchinaDestra == 1)
+                    {
+                            return 1;  
+                    }
+                    else
+                    {
+
+                        return  0;
+                    }
+            
+        }
+
+        public int muoviMacchina1(int posMacchina1, int posMacchina2, int x)
+        { 
+            if(x = 1)
             {
-                lock (x) //se x=1 significa semaforo verde quindi posso eseguire le istruzioni, se x=0 semaforo rosso
+                while (posMacchina1 < 100)
                 {
+                    posMacchina1 += 100;
 
-                    _pool.WaitOne();
+                    Thread.Sleep(TimeSpan.FromMilliseconds(500));
 
-                    buffer++;
-
-                  
-                    _pool.Release();
+                    this.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        imgMacchina1.Margin = new Thickness(posMacchina1, 100, 0, 0);
+                    }));
                 }
 
+                while (posMacchina2 < 100)
+                {
+                    posMacchina2 += 100;
+
+                    Thread.Sleep(TimeSpan.FromMilliseconds(500));
+
+                    this.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        imgMacchina2.Margin = new Thickness(posMacchina2, 100, 0, 0);
+                    }));
+                }
+                return 1;
             }
+            else
+            {
+                while (posMacchina2 < 100)
+                {
+                    posMacchina2 += 100;
 
+                    Thread.Sleep(TimeSpan.FromMilliseconds(500));
 
+                    this.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        imgMacchina2.Margin = new Thickness(posMacchina2, 100, 0, 0);
+                    }));
+                }
+
+                while (posMacchina1 < 100)
+                {
+                    posMacchina1 += 100;
+
+                    Thread.Sleep(TimeSpan.FromMilliseconds(500));
+
+                    this.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        imgMacchina1.Margin = new Thickness(posMacchina1, 100, 0, 0);
+                    }));
+                }
+                return 0;
+            }
         }
 
-       
     }
 }
