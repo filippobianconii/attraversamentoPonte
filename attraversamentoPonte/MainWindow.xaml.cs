@@ -19,53 +19,35 @@ namespace attraversamentoPonte
    
     public partial class MainWindow : Window
     {
-        static int buffer = 5;
-        private static object x = new object();
-        private static Semaphore _pool;
+
         readonly Uri uriMacchina1 = new Uri("macchina1.jpg", UriKind.Relative);
         readonly Uri uriMacchina2 = new Uri("macchina2.jpg", UriKind.Relative);
-       
-
+        int posMacchina1 = 690;
+        int posMacchina2 = 12;
+        
         public MainWindow()
         {
-            int posMacchina1 = 0;
-            int posMacchina2 = 100;
-
-            int x =  chiPassa(posMacchina1, posMacchina2);
-
-            Thread t1 = new Thread(new ThreadStart(muoviMacchina1( posMacchina1, posMacchina2, x )));
+            Thread t1 = new Thread(new ThreadStart(muoviMacchina1));
             ImageSource imm = new BitmapImage(uriMacchina1);
             imgMacchina1.Source = imm;
+
+            Thread t2 = new Thread(new ThreadStart(muoviMacchina1));
+            ImageSource imm1 = new BitmapImage(uriMacchina2);
+            imgMacchina2.Source = imm1;
+
             t1.Start();
-
         }
 
-        public int chiPassa(int posMacchina1, int posMacchina2)
+        public void muoviMacchina1()
         {
-
             Random rn = new Random();
-            int macchinaDestra = rn.Next(0, 1);
-            int x;
+            int x = rn.Next(0, 1);
 
-                    if (macchinaDestra == 1)
-                    {
-                            return 1;  
-                    }
-                    else
-                    {
-
-                        return  0;
-                    }
-            
-        }
-
-        public int muoviMacchina1(int posMacchina1, int posMacchina2, int x)
-        { 
-            if(x = 1)
+            if (x == 1)
             {
-                while (posMacchina1 < 100)
+                while (posMacchina1 >= 12)
                 {
-                    posMacchina1 += 100;
+                    posMacchina1 -= 50;
 
                     Thread.Sleep(TimeSpan.FromMilliseconds(500));
 
@@ -75,9 +57,9 @@ namespace attraversamentoPonte
                     }));
                 }
 
-                while (posMacchina2 < 100)
+                while (posMacchina2 < 691)
                 {
-                    posMacchina2 += 100;
+                    posMacchina2 += 50;
 
                     Thread.Sleep(TimeSpan.FromMilliseconds(500));
 
@@ -86,13 +68,13 @@ namespace attraversamentoPonte
                         imgMacchina2.Margin = new Thickness(posMacchina2, 100, 0, 0);
                     }));
                 }
-                return 1;
-            }
-            else
-            {
-                while (posMacchina2 < 100)
+              
+              }
+             else
+             {
+                while (posMacchina2 < 691)
                 {
-                    posMacchina2 += 100;
+                    posMacchina2 += 50;
 
                     Thread.Sleep(TimeSpan.FromMilliseconds(500));
 
@@ -102,19 +84,18 @@ namespace attraversamentoPonte
                     }));
                 }
 
-                while (posMacchina1 < 100)
-                {
-                    posMacchina1 += 100;
-
-                    Thread.Sleep(TimeSpan.FromMilliseconds(500));
-
-                    this.Dispatcher.BeginInvoke(new Action(() =>
+                    while (posMacchina1 >= 12)
                     {
-                        imgMacchina1.Margin = new Thickness(posMacchina1, 100, 0, 0);
-                    }));
-                }
-                return 0;
-            }
+                        posMacchina1 -= 50;
+
+                        Thread.Sleep(TimeSpan.FromMilliseconds(500));
+
+                        this.Dispatcher.BeginInvoke(new Action(() =>
+                        {
+                            imgMacchina1.Margin = new Thickness(posMacchina1, 100, 0, 0);
+                        }));
+                    }
+             }
         }
 
     }
